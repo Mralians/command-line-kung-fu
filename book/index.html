@@ -32,6 +32,7 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -69,10 +70,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -168,11 +171,35 @@ du -sh &quot;!$&quot;
 </code></pre>
 <h2 id="reuse-the-nth-word-from-a-previous-command"><a class="header" href="#reuse-the-nth-word-from-a-previous-command">Reuse the Nth word from a previous Command</a></h2>
 <p><em><strong>Syntax</strong></em>: <code>!!:N</code> <code>&lt;event-designator&gt;:&lt;number&gt;</code>
-<strong>Explain</strong>*: to access a word in the previous command.</p>
+<strong>Explain</strong>: to access a word in the previous command.</p>
 <pre><code class="language-bash">avconv -i screencast.mp4 podcast.mp3
 mv &quot;!!:2&quot; converted/ #output is mv screencast.mp4 converted/
 </code></pre>
 <h2 id="repeat-the-previous-command-while-substituting-a-string"><a class="header" href="#repeat-the-previous-command-while-substituting-a-string">Repeat the previous Command while substituting a String</a></h2>
+<p><strong>Syntax</strong>: <code>^&lt;string1&gt;^&lt;string2&gt;^</code>
+<strong>Explain</strong>: This little trick is great for quickly correcting typing mistakes. if you omit <code>^&lt;string2&gt;^</code>, then <code>&lt;string&gt; </code>will be removed from the previous command.</p>
+<pre><code class="language-bash">grpe jason /etc/passwd
+^pe^ep
+grep jason /etc/passwd
+grep rooty /etc/passwd
+^y
+grep root /etc/passwd
+</code></pre>
+<h2 id="reference-a-word-of-the-current-command-and-reuse-it"><a class="header" href="#reference-a-word-of-the-current-command-and-reuse-it">Reference a Word of the Current Command and Reuse It</a></h2>
+<p><strong>Syntax:</strong> <code>!#:N</code></p>
+<p><strong>Explain:</strong> The <code>!#</code> event designator represents the current command line, while the <code>:N</code> word designator represents a word on the command line.</p>
+<pre><code class="language-bash">mv Working-with-Files.pdf Chapter-18-!#:1
+mv Working-with-Files.pdf Chapter-18-Working-with-Files.pdf #output
+</code></pre>
+<h2 id="save-a-copy-of-your-command-line-session"><a class="header" href="#save-a-copy-of-your-command-line-session">Save a Copy of Your Command Line Session</a></h2>
+<p><strong>Syntax:</strong> script</p>
+<p><strong>Explain:</strong> If you want to document what you see on your screen, use the script command. The script command captures everything that is printed on your terminal and saves it to a file.</p>
+<h2 id="find-out-which-commands-you-use-most-often"><a class="header" href="#find-out-which-commands-you-use-most-often">Find out Which Commands You Use Most Often</a></h2>
+<p><strong>Syntax:</strong> <code>history | awk '{print $2}' | sort  | uniq -c | sort -rn | head</code></p>
+<p><strong>Explain:</strong> To get a list of the top ten most used command in your shell history.</p>
+<h2 id="clear-your-shell-history"><a class="header" href="#clear-your-shell-history">Clear Your Shell History</a></h2>
+<p><strong>Syntax:</strong> <code>history -c</code></p>
+<p><strong>Explain:</strong> To clear your shell history.</p>
 
                     </main>
 
@@ -226,5 +253,6 @@ mv &quot;!!:2&quot; converted/ #output is mv screencast.mp4 converted/
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>
