@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - Command Line Kung Fu</title>
-        <base href="/">
+        <title>Commands - Command Line Kung Fu</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li><li class="chapter-item expanded "><a href="commands.html"><strong aria-hidden="true">2.</strong> Commands</a></li><li class="chapter-item expanded "><a href="awk.html"><strong aria-hidden="true">3.</strong> Awk</a></li><li class="chapter-item expanded "><a href="bash-script.html"><strong aria-hidden="true">4.</strong> Bash Script</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li><li class="chapter-item expanded "><a href="commands.html" class="active"><strong aria-hidden="true">2.</strong> Commands</a></li><li class="chapter-item expanded "><a href="awk.html"><strong aria-hidden="true">3.</strong> Awk</a></li><li class="chapter-item expanded "><a href="bash-script.html"><strong aria-hidden="true">4.</strong> Bash Script</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,14 +144,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h2 id="shuf"><a class="header" href="#shuf">shuf</a></h2>
+<ul>
+<li>
+<p><strong>description</strong>:  generate random permutations</p>
+<pre><code class="language-bash">man -k .  | shuf -n 1
+</code></pre>
+</li>
+</ul>
+<h2 id="rofi"><a class="header" href="#rofi">Rofi</a></h2>
+<ul>
+<li>​	<strong>description:</strong>  -
+<pre><code class="language-bash">printf '%s\n' 'Search manpages' 'Random manpage' Quit | rofi -dmenu -p Manpages: @
+</code></pre>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="shell-history.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next" href="awk.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -160,7 +178,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="shell-history.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next" href="awk.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

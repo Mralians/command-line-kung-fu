@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - Command Line Kung Fu</title>
-        <base href="/">
+        <title>Bash Script - Command Line Kung Fu</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li><li class="chapter-item expanded "><a href="commands.html"><strong aria-hidden="true">2.</strong> Commands</a></li><li class="chapter-item expanded "><a href="awk.html"><strong aria-hidden="true">3.</strong> Awk</a></li><li class="chapter-item expanded "><a href="bash-script.html"><strong aria-hidden="true">4.</strong> Bash Script</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li><li class="chapter-item expanded "><a href="commands.html"><strong aria-hidden="true">2.</strong> Commands</a></li><li class="chapter-item expanded "><a href="awk.html"><strong aria-hidden="true">3.</strong> Awk</a></li><li class="chapter-item expanded "><a href="bash-script.html" class="active"><strong aria-hidden="true">4.</strong> Bash Script</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,13 +144,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h2 id="bash-script-tips"><a class="header" href="#bash-script-tips">Bash Script Tips</a></h2>
+<ol>
+<li>
+<p>readarray</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+readarray NAMES&lt;&lt;EOF
+anna
+elisabeth
+john
+EOF
+echo &quot;${NAMES[0]}&quot;
+</code></pre>
+<pre><code class="language-bash"> #!/usr/bin/env bash
+ 
+ readarray -t _sounds_list &lt; &lt;(find &quot;${sounds_dir}&quot; \( -iname &quot;*.mp3&quot; -o -iname &quot;*.m4a&quot; -o -iname &quot;*.ogg&quot; \) -printf '%P\n')
+</code></pre>
+</li>
+</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="awk.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -160,6 +179,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="awk.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 

@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="shell-history.html"><strong aria-hidden="true">1.</strong> Shell History</a></li><li class="chapter-item expanded "><a href="commands.html"><strong aria-hidden="true">2.</strong> Commands</a></li><li class="chapter-item expanded "><a href="awk.html"><strong aria-hidden="true">3.</strong> Awk</a></li><li class="chapter-item expanded "><a href="bash-script.html"><strong aria-hidden="true">4.</strong> Bash Script</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -201,6 +201,50 @@ mv Working-with-Files.pdf Chapter-18-Working-with-Files.pdf #output
 <h2 id="clear-your-shell-history"><a class="header" href="#clear-your-shell-history">Clear Your Shell History</a></h2>
 <p><strong>Syntax:</strong> <code>history -c</code></p>
 <p><strong>Explain:</strong> To clear your shell history.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="shuf"><a class="header" href="#shuf">shuf</a></h2>
+<ul>
+<li>
+<p><strong>description</strong>:  generate random permutations</p>
+<pre><code class="language-bash">man -k .  | shuf -n 1
+</code></pre>
+</li>
+</ul>
+<h2 id="rofi"><a class="header" href="#rofi">Rofi</a></h2>
+<ul>
+<li>​	<strong>description:</strong>  -
+<pre><code class="language-bash">printf '%s\n' 'Search manpages' 'Random manpage' Quit | rofi -dmenu -p Manpages: @
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="awk"><a class="header" href="#awk">Awk</a></h1>
+<ol>
+<li>Delete extra spaces
+<pre><code class="language-bash">cat text
+#zstdmt (1)           - zstd, zstdmt, unzstd, zstdcat - Compress or decompress .zst files
+cat text | awk '$3=&quot;-&quot;;print $0'
+#zstdmt (1) - zstd, zstdmt, unzstd, zstdcat - Compress or decompress .zst files
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="bash-script-tips"><a class="header" href="#bash-script-tips">Bash Script Tips</a></h2>
+<ol>
+<li>
+<p>readarray</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+readarray NAMES&lt;&lt;EOF
+anna
+elisabeth
+john
+EOF
+echo &quot;${NAMES[0]}&quot;
+</code></pre>
+<pre><code class="language-bash"> #!/usr/bin/env bash
+ 
+ readarray -t _sounds_list &lt; &lt;(find &quot;${sounds_dir}&quot; \( -iname &quot;*.mp3&quot; -o -iname &quot;*.m4a&quot; -o -iname &quot;*.ogg&quot; \) -printf '%P\n')
+</code></pre>
+</li>
+</ol>
 
                     </main>
 
